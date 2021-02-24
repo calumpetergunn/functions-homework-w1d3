@@ -16,7 +16,7 @@ def find_uncompleted_tasks(tasks_list):
     return uncompleted_tasks
 
 tasks_not_complete = find_uncompleted_tasks(tasks)
-print(tasks_not_complete)
+# print(tasks_not_complete)
 
 #question 2 - probably not as efficient and tidy as it could be
 
@@ -28,27 +28,29 @@ def find_completed_tasks(tasks_list):
     return completed_tasks
 
 tasks_complete = find_completed_tasks(tasks)
-print(tasks_complete)
+# print(tasks_complete)
 
 #task 3 - unable to loop through other results
 
 def task_description(tasks_list):
+    tasks_filtered = []
     for task in tasks_list:
-        return task
+        tasks_filtered.append(task["description"])
+    return tasks_filtered
 
 description_of_task = task_description(tasks)
-print(description_of_task["description"])
+# print(description_of_task)
 
-#task 4 - same issue as #3
-def lengthy_tasks(tasks_list):
+#task 4 - same issue as #3 fixed
+def lengthy_tasks(tasks_list, time):
     longer_tasks = []
     for task in tasks_list:
-        if task["time_taken"] > 12:
+        if task["time_taken"] > time :
             longer_tasks.append(task)
     return longer_tasks
 
-all_the_long_tasks = lengthy_tasks(tasks)
-print(all_the_long_tasks[0]["description"])
+all_the_long_tasks = lengthy_tasks(tasks, 20)
+print(all_the_long_tasks)
 
 #task 5 BOOM
 def task_name_finder(tasks_list, task_description):
@@ -71,4 +73,4 @@ tasks.append(
     { "description": "Clean the Bog", "completed": False, "time_taken": 100 },
 )
 
-print(tasks)
+# print(tasks)
